@@ -1,9 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const htmlPlugin = new HtmlWebPackPlugin({
- template: "./src/index.html",
+ template: "./client/src/index.html",
  filename: "./index.html"
 });
 module.exports = {
+entry: "./client/src/index.js",
 mode: "development",
   module: {
     rules: [{
