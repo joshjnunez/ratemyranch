@@ -5,7 +5,8 @@ class App extends Component {
         super(props);
         
         this.state = {
-            reviewButtonClicked: false
+            reviewButtonClicked: false,
+            restaraunt: " "
         };  
     }
 
@@ -18,14 +19,27 @@ class App extends Component {
 
     handleChange(e){
         console.log(e.target.value);
+
+    const array = ['juniors', 'three b\'s', 'blue oak bbq'];
+
+    for(let i = 0; i < array.length; i++){
+        if(e.target.value === array[i]) {
+            this.setState({
+                    restaraunt: array[i],
+                })
+        };
+        }
     }
 
     render(){
+        const {restaraunt} = this.state;
         return (
         <div>
         <h2>Rate My Ranch</h2>
         <input onChange={(e)=> this.handleChange(e)}></input>
         <button onClick={()=> this.handleClick()}>Click Me</button>
+        <div>---------------------------</div>
+        <div>{restaraunt}</div>
         </div>
         )
     }
